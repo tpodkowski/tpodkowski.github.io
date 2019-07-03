@@ -1,9 +1,15 @@
 (function() {
+  const dataLayer = window.dataLayer || [];
   const textarea = document.querySelector('.textarea');
   const button = document.querySelector('.button');
   
-  function handleOnClick() {
-    console.log('click');
+  const handleOnClick = () => {
+    const { 
+      value: textareaValue
+    } = textarea;
+    
+    dataLayer.push(textareaValue);
+    console.log('Pushed: ', textareaValue);
   }
   
   button.addEventListener('click', handleOnClick);
