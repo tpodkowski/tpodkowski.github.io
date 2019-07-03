@@ -8,8 +8,12 @@
       value: textareaValue
     } = textarea;
     
-    dataLayer.push(textareaValue);
-    console.log('Pushed: ', textareaValue);
+    try {
+      dataLayer.push(JSON.parse(textareaValue));
+      console.log('Pushed: ', JSON.parse(textareaValue));
+    } catch (error) {
+      console.error(error);
+    } 
   }
   
   button.addEventListener('click', handleOnClick);
